@@ -9,6 +9,7 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -37,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({
         ${small ? "py-1" : "py-3"}
         ${small ? "text-sm" : "text-md"}
         ${small ? "font-light" : "font-semibold"}
-        ${small ? "border-[1px]" : "border-2"}
+        ${small ? "border-[1px]" : "border-[1px]"}
     `}
     >
       {Icon && (

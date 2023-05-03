@@ -88,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({
             w-full
             md:w-4/6
             lg:w-3/6
-            xl:w-2/5
+            xl:w-2/6           
             my-6
             mx-auto
             lg:h-auto
@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
             translate
             duration-300
             h-full
-            ${showModal ? "translate-y-0" : "translate--full"}
+            ${showModal ? "translate-y-0" : "translate-y-full"}
             ${showModal ? "opacity-100" : "opacity-0"}
             `}
           >
