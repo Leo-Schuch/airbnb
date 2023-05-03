@@ -1,18 +1,18 @@
 "use client";
 
-import {AiOutlineMenu} from 'react-icons/ai'
-import Avatar from '../Avatar';
-import { useCallback, useState } from 'react';
-import MenuItem from './MenuItem';
-import useRegisterModal from '../hooks/useRegisterModal';
+import { AiOutlineMenu } from "react-icons/ai";
+import Avatar from "../Avatar";
+import { useCallback, useState } from "react";
+import MenuItem from "./MenuItem";
+import useRegisterModal from "../../hooks/useRegisterModal";
 
 const UserMenu = () => {
-  const registerModal = useRegisterModal()
-  const [isOpen, setIsOpen] = useState(false)
+  const registerModal = useRegisterModal();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((val) => !val);
-  }, [])
+  }, []);
 
   return (
     <div className="relative">
@@ -34,7 +34,7 @@ const UserMenu = () => {
         >
           Anuncie seu espaço no Airbnb
         </div>
-        <div 
+        <div
           onClick={toggleOpen}
           className="
             p-4
@@ -52,16 +52,16 @@ const UserMenu = () => {
             transition
           "
         >
-          <AiOutlineMenu/>
-          <div className='hidden md:block'>
-            <Avatar/>
+          <AiOutlineMenu />
+          <div className="hidden md:block">
+            <Avatar />
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div 
-          className='
+        <div
+          className="
             absolute
             rounded-xl
             shadow-md
@@ -72,18 +72,12 @@ const UserMenu = () => {
             right-0
             top-12
             text-sm
-          '
+          "
         >
-          <div className='flex flex-col cursor-pointer'>
+          <div className="flex flex-col cursor-pointer">
             <>
-              <MenuItem
-                onClick={() => {}}
-                label='Cadastre-se'
-              />
-              <MenuItem
-                onClick={registerModal.onOpen}
-                label='Entrar'
-              />
+              <MenuItem onClick={() => {}} label="Cadastre-se" />
+              <MenuItem onClick={registerModal.onOpen} label="Entrar" />
             </>
           </div>
         </div>

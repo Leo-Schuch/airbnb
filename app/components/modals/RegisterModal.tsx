@@ -2,13 +2,16 @@
 
 import React from "react";
 import axios from "axios";
+import {FcGoogle} from 'react-icons/fc'
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
-import useRegisterModal from "../hooks/useRegisterModal";
+import useRegisterModal from "../../hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import { toast } from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -17,9 +20,7 @@ const RegisterModal = () => {
   const {
     register,
     handleSubmit,
-    formState: {
-       errors 
-      },
+    formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
@@ -37,7 +38,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((err) => {
-        console.log(err);
+        toast.error('Algo deu errado!!')
       })
       .finally(() => {
         setIsLoading(false);
@@ -46,11 +47,7 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading 
-        title="Bem-vindo ao Airbnb"
-        subtitle="Crie uma conta"
-        
-      />
+      <Heading title="Bem-vindo ao Airbnb" subtitle="Crie uma conta" />
       <Input
         id="email"
         label="Email"
@@ -77,6 +74,18 @@ const RegisterModal = () => {
         required
       />
     </div>
+  );
+
+  const footerContent = (
+    <div className="fle flex-col gap-4 mt-3">
+      <hr/>
+      <Button 
+        outline
+        label="Continue com a conta Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+    </div>
   )
 
   return (
@@ -88,6 +97,7 @@ const RegisterModal = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
